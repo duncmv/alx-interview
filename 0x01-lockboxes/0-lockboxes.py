@@ -7,16 +7,16 @@ def canUnlockAll(boxes):
     box_number = len(boxes)
     if box_number < 2:
         return True
-    keys = set(boxes[0])
+    keys = set(boxes[0]) | set([0])
     open = set([0])
-    if 1 not in keys:
-        return False
-    while True:
-        if len(open) == box_number:
-            return True
-        for i in open:
-            open = open.union(set(boxes[i]))
-            keys = keys.union(set(boxes[i]))
-        open = open.difference(keys)
-        if not open:
+    while open != set(range(box_number)):
+        next_open = set()
+        for i in keys:
+            if i < box_number:
+                next_open |= set(boxes[i])
+        keys |= next_open
+        keys = {x for x in keys if x < box_number}
+        if not keys - open:
             return False
+        open |= keys
+    return True
