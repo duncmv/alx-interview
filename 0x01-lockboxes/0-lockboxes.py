@@ -7,8 +7,8 @@ def canUnlockAll(boxes):
     box_number = len(boxes)
     if box_number < 2:
         return True
-    keys = set(boxes[0]) | set([0])
-    open = set([0])
+    keys = set(boxes[0]) | {0}
+    open = {0}
     while open != set(range(box_number)):
         next_open = set()
         for i in keys:
