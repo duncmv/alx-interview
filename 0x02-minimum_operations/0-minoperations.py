@@ -6,7 +6,7 @@ def minOperations(n):
     """findin minumum operations"""
     if n <= 1:
         return 0
-    
+
     operations = 0
     factor = 2
 
@@ -15,5 +15,5 @@ def minOperations(n):
             operations += factor
             n //= factor
         factor += 1
-    
+
     return operations
