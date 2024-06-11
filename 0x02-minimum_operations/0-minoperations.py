@@ -3,6 +3,7 @@
 
 
 def minOperations(n):
+    """findin minumum operations"""
     if n <= 1:
         return 0
     
