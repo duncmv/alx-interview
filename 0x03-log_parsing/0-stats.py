@@ -27,7 +27,8 @@ def print_stats():
     """print stats"""
     print(f"Total file size: {total_size}")
     for status_code, count in counts.items():
-        print(f"{status_code}: {count}")
+        if count > 0:
+            print(f"{status_code}: {count}")
 
 
 # Set up a signal handler to exit when Ctrl+C is pressed
